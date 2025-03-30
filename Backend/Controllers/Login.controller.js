@@ -22,7 +22,7 @@ async function loginController(req, res) {
 
     }
 
-    const token = createToken({ username: adminInfo.username })
+    const token = createToken({ username: adminInfo._id })
 
     const comparePasswords = async (password, hashed) => {
         const match = await bcrypt.compare(password, hashed);

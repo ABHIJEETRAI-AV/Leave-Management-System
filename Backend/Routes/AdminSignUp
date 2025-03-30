@@ -1,6 +1,0 @@
-const route = require("express").Router();
-const employeeSignUp = require("../Controllers/AdminsignUp");
-
-route.post('/', employeeSignUp)
-
-module.exports = route

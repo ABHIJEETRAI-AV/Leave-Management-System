@@ -10,7 +10,7 @@ const adminSchema = new Schema({
     phone: { type: String,  },
     department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'] },
     
-
+    employee: [{ type: mongoose.Schema.Types.ObjectId, ref: "Employee" }],
     image: { type: String },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }

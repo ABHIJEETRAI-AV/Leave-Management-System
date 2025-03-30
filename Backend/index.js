@@ -10,6 +10,7 @@ const app = express();
 
 const login = require('./Routes/login');
 const SignUp = require('./Routes/SignUp');
+const AdminSignUp = require('./Routes/AdminSignUp');
 
 app.use(cors())
 app.use(express.json());
@@ -26,9 +27,9 @@ connectDB();
 
 app.use('/login' , login)
 app.use('/SignUp' , SignUp)
-app.use('/adminSignUp', )
+app.use('/EmployeeSignUp', AdminSignUp)
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000 , () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });

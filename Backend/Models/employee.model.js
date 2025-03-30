@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const employeeSchema = new Schema({
-    employeeID: { type: String, required: true, unique: true },
+    
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phoneNumber: { type: String },
-    department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'], required: true },
+    department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'] },
     
     profilePicture: { type: String },
     leaveBalance: {
