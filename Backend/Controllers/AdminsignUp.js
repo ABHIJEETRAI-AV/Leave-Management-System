@@ -5,7 +5,14 @@ const admin = require('../Models/admin.model');
 const verifyToken = require('../Utils/verifyToken');
 
 async function AdminSignUpController(req, res) {
-const employeeData = req.body.data;
+const {fullName, email, password} = req.body.data;
+const hashedPassword = await bcrypt.hash(password, 10);
+
+const employeeData = {
+    fullName: fullName,
+    email: email,
+    password: hashedPassword        
+}
 console.log(employeeData)
 
 try{

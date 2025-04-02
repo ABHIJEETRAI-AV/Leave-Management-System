@@ -11,6 +11,7 @@ const app = express();
 const login = require('./Routes/login');
 const SignUp = require('./Routes/SignUp');
 const AdminSignUp = require('./Routes/AdminSignUp');
+const getAdminData = require('./Routes/GetAdminData');
 
 app.use(cors())
 app.use(express.json());
@@ -28,6 +29,7 @@ connectDB();
 app.use('/login' , login)
 app.use('/SignUp' , SignUp)
 app.use('/EmployeeSignUp', AdminSignUp)
+app.use('/getAdminData', getAdminData)
 
 
 app.listen(3000 , () => {

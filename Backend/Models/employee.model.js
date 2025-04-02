@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const employeeSchema = new Schema({
     
     fullName: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
     phoneNumber: { type: String },
     department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'] },
     

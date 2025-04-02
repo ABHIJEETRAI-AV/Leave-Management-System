@@ -1,8 +1,7 @@
 import React, { use } from 'react'
 import { useState } from 'react'
-import DashboardAdmin from './DashboardAdmin';
-import EmployeeSignUp from './EmployeeSignUp';
-import LeaveManager from './LeaveManager';
+import DashboardEmployee from './DashboardEmployee';
+
 import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 
@@ -29,13 +28,14 @@ function Home() {
 
         body: JSON.stringify({
           token: token,
-          role: 'Admin'
+          role: 'employee'
+
         })
       }
     )
 
      const data = await response.json();
-    const username = data[0].username;
+    const username = data[0].fullName;
     setUsername(username);
     setData(data);
   }
@@ -46,7 +46,7 @@ function Home() {
 
   // console.table( data)
 
-  localStorage.setItem('adminData', JSON.stringify(data) )
+  localStorage.setItem('employeeData', JSON.stringify(data) )
   // console.log(localStorage.getItem('adminData'))
   return (
     <div>
@@ -66,7 +66,7 @@ function Home() {
       </nav>
       <div>
         {
-          (dashboard) ? <DashboardAdmin /> : ""
+          (dashboard) ? <DashboardEmployee /> : ""
         }{
           (employee) ? <EmployeeSignUp /> : ""
         }

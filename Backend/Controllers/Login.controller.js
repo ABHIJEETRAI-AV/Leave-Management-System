@@ -2,21 +2,29 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const admin = require('../Models/admin.model');
+const employee = require('../Models/employee.model');
 const createToken = require('../Utils/createToken');
 
 
 async function loginController(req, res) {
-    const { username, password } = req.body
+    const { username, password, role } = req.body
+    // console.log(role)
+    let adminInfo
 
     // console.log(req.body)
     // console.log(username)
-    const adminInfo = await admin.findOne({ username: username })
+    if(role === 'Admin'){   
+     adminInfo = await admin.findOne({ username: username })
+    }else{
+         adminInfo = await employee.findOne({ fullName: username })
+    }
     // console.log(adminInfo.username)
 
     const hashed = adminInfo.password
 
     if (!adminInfo) {
-        res.status(404).json({ message: 'Admin not found' })
+        // res.status(404).json({ message: 'Admin not found' })
+        const employeeInfo = await employee.findOne({ username: username })
         // console.log(adminInfo.password)
 
 
@@ -38,12 +46,15 @@ async function loginController(req, res) {
             message: 'Login Successful',
             validity: true,
             token: token
+            
 
         })
         console.log('login successfull')
     }
     else {
-        res.status(404).json({ message: 'password incorrect' })
+        res.status(404).json({ message: 'password incorrect' ,
+            bool: 0
+        })
     }
 
 

@@ -6,10 +6,10 @@ import add from '/src/assets/add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 // console.log (AdminData)
 
 // console.log(username)
-function DashboardAdmin() {
-  const adminData = localStorage.getItem('adminData')
+function DashboardEmployee() {
+  const adminData = localStorage.getItem('employeeData')
 const AdminData = JSON.parse(adminData)
-  const username = AdminData[0].username
+  const username = AdminData[0].fullName
   return (
     <div>
       <div className='w-[100%] h-[14rem] border-2 border-black flex flex-col items-center justify-between '>
@@ -21,7 +21,7 @@ const AdminData = JSON.parse(adminData)
           </div>
           <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-black mr-[2rem]'>
             <button ><img src={add} alt="" className='w-[100%] h-[100%]' /></button>
-            <p>Add employee</p>
+            <p>Apply Leave</p>
           </div>
         </div>
 
@@ -35,10 +35,10 @@ const AdminData = JSON.parse(adminData)
       <div className='w-[100%] h-[20rem] border-2 border-black absolute bottom-[0] flex flex-row items-center justify-around'>
 
         <div className='w-[30%] h-[90%] border-2 border-black rounded-[20px]' >
-          <h1>Employees on leave :</h1>
+          <h1>Pending leaves :</h1>
         </div>
         <div className='w-[60%] h-[90%] border-2 border-black rounded-[20px]'>
-        <h1>Leave requests :</h1>
+        <h1>Leave history :</h1>
         </div>
 
       </div>
@@ -46,7 +46,7 @@ const AdminData = JSON.parse(adminData)
   )
 }
 
-export default DashboardAdmin
+export default DashboardEmployee
 
 
 
