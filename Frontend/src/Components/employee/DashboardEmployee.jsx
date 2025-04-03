@@ -57,9 +57,31 @@ function DashboardEmployee({setDashboard, setEmployee, setLeave}) {
         </div>
 
         <div className=' flex flex-row items-center justify-around w-[100%] h-[25%] relative bottom-[-20%]'>
-          <DataCard />
-          <DataCard />
-          <DataCard />
+          <DataCard
+          
+          heading='Attendance :'
+
+          sub={'k'}
+
+          img={'u'}
+          
+          />
+          <DataCard  
+          
+          heading='Leave balance :'
+
+          sub={'k'}
+
+          img={'u'}
+          />
+          <DataCard  
+          
+          heading='Attendance :'
+
+          sub={'k'}
+
+          img={'u'}
+          />
         </div>
       </div>
 
@@ -70,7 +92,7 @@ function DashboardEmployee({setDashboard, setEmployee, setLeave}) {
 
 
         <div className='w-[30%] h-[90%] border-2 border-black rounded-[20px] flex flex-col items-center justify-around' >
-          <h1>Pending leaves :</h1>
+          <h1 className='w-[90%] text-[1.3rem] font-[600]'>Pending leaves :</h1>
           <div className='flex flex-col items-center gap-5 border-2 border-black w-[95%] min-h-[80%] overflow-y-scroll'>
 
             {data.map((leave, index) => (
@@ -90,8 +112,8 @@ function DashboardEmployee({setDashboard, setEmployee, setLeave}) {
 
 
         <div className='w-[60%] h-[90%] border-2 border-black rounded-[20px] flex flex-col items-center justify-around'>
-          <h1>Leave history :</h1>
-          <div className='flex flex-col items-center gap-5 border-2 border-black w-[95%] min-h-[80%] overflow-y-scroll'>
+          <h1 className='w-[90%] text-[1.3rem] font-[600]'>Leave history :</h1>
+          <div className='flex flex-col items-center gap-5 border-2 border-black w-[95%] min-h-[80%] overflow-auto'>
 
             {data.map((leave, index) => (
               data[index].status === 'Approved' && (
@@ -117,12 +139,12 @@ export default DashboardEmployee
 
 
 
-function DataCard() {
+function DataCard(props) {
   return (
     <div className='w-[25%] h-[10rem] border-2 border-black rounded-[20px] flex flex-row items-center justify-around'>
       <img src="" alt="" className='w-[6rem] h-[6em] rounded-[50%] border-2 border-black' />
       <div className='flex flex-col items-center justify-around h-[100%] w-[60%]'>
-        <h1>Heading</h1>
+        <h1>{props.heading}</h1>
         <p>subheading</p>
       </div>
 
@@ -132,7 +154,7 @@ function DataCard() {
 
 function PendingLeaves({ leave }) {
   return (
-    <div className='w-[100%] h-[25%] border-2 border-black rounded-[20px] flex flex-row items-center justify-around'>
+    <div className='w-[100%] min-h-[25%] border-2 border-black rounded-[20px] flex flex-row items-center justify-around'>
       {/* <img src="" alt="" className='w-[6rem] h-[6em] rounded-[50%] border-2 border-black' /> */}
       <div className='flex flex-row items-center justify-around h-[100%] w-[60%]'>
         <h1>{leave.leaveType}</h1>

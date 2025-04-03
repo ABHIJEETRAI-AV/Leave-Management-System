@@ -8,7 +8,7 @@ const employeeData = await employee.findOne({ _id: req.body.employeeId });
 // console.log(employeeData.leaveHistory)
 
 const leaveData = await dataCollector('leave', employeeData.leaveHistory)
-console.log(leaveData)
+// console.log(leaveData)
 
 res.status(200).json(leaveData)
 

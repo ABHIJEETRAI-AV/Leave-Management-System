@@ -19,8 +19,8 @@ async function loginController(req, res) {
          adminInfo = await employee.findOne({ fullName: username })
     }
     // console.log(adminInfo.username)
-
-    const hashed = adminInfo.password
+let hashed
+    if(adminInfo) {hashed = adminInfo.password}
 
     if (!adminInfo) {
         // res.status(404).json({ message: 'Admin not found' })
@@ -30,7 +30,9 @@ async function loginController(req, res) {
 
     }
 
-    const token = createToken({ username: adminInfo._id })
+    let token
+
+    if(adminInfo) {token = createToken({ username: adminInfo._id })}
 
     const comparePasswords = async (password, hashed) => {
         const match = await bcrypt.compare(password, hashed);
@@ -38,7 +40,7 @@ async function loginController(req, res) {
         return match;
     };
 
-    const bool = await comparePasswords(password, hashed)
+    const bool = adminInfo? await comparePasswords(password, hashed):false
      
 
     if (bool) {
