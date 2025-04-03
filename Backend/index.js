@@ -13,6 +13,8 @@ const SignUp = require('./Routes/SignUp');
 const AdminSignUp = require('./Routes/AdminSignUp');
 const getAdminData = require('./Routes/GetAdminData');
 const leaveApplication = require('./Routes/leaveApplication');
+const leaveData = require('./Routes/leaveData');
+
 
 app.use(cors())
 app.use(express.json());
@@ -32,6 +34,7 @@ app.use('/SignUp' , SignUp)
 app.use('/EmployeeSignUp', AdminSignUp)
 app.use('/getAdminData', getAdminData)
 app.use('/leaveApplication', leaveApplication)
+app.use('/getLeave', leaveData)
 
 
 app.listen(3000 , () => {

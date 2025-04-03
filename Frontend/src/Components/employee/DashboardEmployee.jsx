@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import add from '/src/assets/add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
+
 
 
 
@@ -10,6 +11,30 @@ function DashboardEmployee() {
   const adminData = localStorage.getItem('employeeData')
 const AdminData = JSON.parse(adminData)
   const username = AdminData[0].fullName
+  const employeeId = AdminData[0]._id
+
+
+  async function getLeave(employeeId) {
+    const response = await fetch('http://localhost:3000/getLeave',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+
+        body: JSON.stringify({
+          employeeId: employeeId,
+          role: 'employee'
+
+    })
+  })
+
+  const data = await response.json();
+  console.log(data)
+}
+
+useEffect(() => {
+  getLeave(employeeId);
+}, []);
+
   return (
     <div>
       <div className='w-[100%] h-[14rem] border-2 border-black flex flex-col items-center justify-between '>
@@ -34,9 +59,17 @@ const AdminData = JSON.parse(adminData)
 
       <div className='w-[100%] h-[20rem] border-2 border-black absolute bottom-[0] flex flex-row items-center justify-around'>
 
+        
+        
+        
+        
         <div className='w-[30%] h-[90%] border-2 border-black rounded-[20px]' >
           <h1>Pending leaves :</h1>
         </div>
+
+
+
+
         <div className='w-[60%] h-[90%] border-2 border-black rounded-[20px]'>
         <h1>Leave history :</h1>
         </div>
