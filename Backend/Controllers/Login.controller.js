@@ -11,8 +11,8 @@ async function loginController(req, res) {
     // console.log(role)
     let adminInfo
 
-    // console.log(req.body)
-    // console.log(username)
+    console.log(req.body)
+    console.log(username)
     if(role === 'Admin'){   
      adminInfo = await admin.findOne({ username: username })
     }else{

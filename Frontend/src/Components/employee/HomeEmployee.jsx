@@ -1,7 +1,7 @@
 import React, { use } from 'react'
 import { useState } from 'react'
 import DashboardEmployee from './DashboardEmployee';
-
+import LeaveApplication from './LeaveApplication';
 import { useLocation } from 'react-router';
 import { useEffect } from 'react';
 
@@ -71,7 +71,7 @@ function Home() {
           (employee) ? <EmployeeSignUp /> : ""
         }
          {
-          (leave) ? <LeaveManager /> : ""
+          (leave) ? <LeaveApplication /> : ""
         }
       </div>
     </div>
