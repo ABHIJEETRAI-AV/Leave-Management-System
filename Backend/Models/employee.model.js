@@ -7,12 +7,13 @@ const employeeSchema = new Schema({
     email: { type: String, required: true },
     phoneNumber: { type: String },
     department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'] },
-    
+    admin: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
     profilePicture: { type: String },
+    totalLeaves: { type: Number, default: 20 },
     leaveBalance: {
-        sickLeave: { type: Number, default: 0 },
-        casualLeave: { type: Number, default: 0 },
-        earnedLeave: { type: Number, default: 0 }
+        sickLeave: { type: Number, default: 5 },
+        casualLeave: { type: Number, default: 5 },
+        earnedLeave: { type: Number, default: 10 }
     },
     leaveHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Leave" }],
     password: { type: String, required: true },

@@ -6,7 +6,7 @@ function verifyToken(token){
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         return decoded;
     } catch(err) {
-        return null;
+        return err.message || null;
     }
 }
 

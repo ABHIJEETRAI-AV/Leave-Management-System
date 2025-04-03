@@ -41,6 +41,8 @@ function DashboardEmployee({setDashboard, setEmployee, setLeave}) {
     getLeave(employeeId);
   }, []);
 
+  
+  localStorage.setItem('leaveData', JSON.stringify(data) );
   return (
     <div>
       <div className='w-[100%] h-[14rem] border-2 border-black flex flex-col items-center justify-between '>
@@ -59,26 +61,26 @@ function DashboardEmployee({setDashboard, setEmployee, setLeave}) {
         <div className=' flex flex-row items-center justify-around w-[100%] h-[25%] relative bottom-[-20%]'>
           <DataCard
           
-          heading='Attendance :'
+          heading='Total Leaves :'
 
-          sub={'k'}
+          sub={AdminData[0].totalLeaves}
 
           img={'u'}
           
           />
           <DataCard  
           
-          heading='Leave balance :'
+          heading='Balance Leaves :'
 
-          sub={'k'}
+          sub={AdminData[0].totalLeaves}
 
           img={'u'}
           />
           <DataCard  
           
-          heading='Attendance :'
+          heading='Taken Leaves :'
 
-          sub={'k'}
+          sub={20-AdminData[0].totalLeaves}
 
           img={'u'}
           />
@@ -145,7 +147,7 @@ function DataCard(props) {
       <img src="" alt="" className='w-[6rem] h-[6em] rounded-[50%] border-2 border-black' />
       <div className='flex flex-col items-center justify-around h-[100%] w-[60%]'>
         <h1>{props.heading}</h1>
-        <p>subheading</p>
+        <p>{props.sub}</p>
       </div>
 
     </div>
