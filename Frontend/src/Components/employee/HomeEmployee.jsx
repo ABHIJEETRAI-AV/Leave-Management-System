@@ -66,7 +66,12 @@ function Home() {
       </nav>
       <div>
         {
-          (dashboard) ? <DashboardEmployee /> : ""
+          (dashboard) ? <DashboardEmployee 
+          
+          setDashboard={setDashboard}
+          setEmployee={setEmployee}
+          setLeave={setLeave}
+          /> : ""
         }{
           (employee) ? <EmployeeSignUp /> : ""
         }

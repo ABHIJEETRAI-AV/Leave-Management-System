@@ -10,7 +10,7 @@ const employeeData = await employee.findOne({ _id: req.body.employeeId });
 const leaveData = await dataCollector('leave', employeeData.leaveHistory)
 console.log(leaveData)
 
-res.status(200).send(leaveData)
+res.status(200).json(leaveData)
 
 
 }
