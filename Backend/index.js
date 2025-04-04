@@ -14,7 +14,8 @@ const AdminSignUp = require('./Routes/AdminSignUp');
 const getAdminData = require('./Routes/GetAdminData');
 const leaveApplication = require('./Routes/leaveApplication');
 const leaveData = require('./Routes/leaveData');
-
+const leaveRequestData = require('./Routes/leaveRequestData');
+const leaveDecider = require('./Routes/leaveDecider');
 
 app.use(cors())
 app.use(express.json());
@@ -35,6 +36,8 @@ app.use('/EmployeeSignUp', AdminSignUp)
 app.use('/getAdminData', getAdminData)
 app.use('/leaveApplication', leaveApplication)
 app.use('/getLeave', leaveData)
+app.use('/LeaveRequestData', leaveRequestData)
+app.use('/LeaveDecider', leaveDecider)
 
 
 app.listen(3000 , () => {

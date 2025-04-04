@@ -17,9 +17,12 @@ async function LeaveApplication(req, res) {
         const AdminDataId = AdminData._id
         // console.log(AdminDataId)
 
+
         await leave.findByIdAndUpdate(leaveId._id, {
-            $set: { employee: adminid.username },
-             $set: {admin: AdminDataId }
+            $set: { 
+                employee: employeeData._id,
+                admin: AdminDataId
+            }
 
         })
         // console.log(req.body.data.leaveType)
