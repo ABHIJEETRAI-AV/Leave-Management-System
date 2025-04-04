@@ -48,7 +48,7 @@ async function AdminSignUpController(req, res) {
 
         await admin.findByIdAndUpdate(
             id, // The ID of the document to update
-            { employee: employeedata._id }, // The updated data
+            { $push: { employee: employeedata._id } }, // The updated data
             // { new: true, runValidators: true } // Options: return the updated document and validate
         );
 

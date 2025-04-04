@@ -6,7 +6,7 @@ const adminSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String,  default: 'admin' },
-    
+    leaveRequest: [{ type: mongoose.Schema.Types.ObjectId, ref: "Leave" }],
     phone: { type: String,  },
     department: { type: String, enum: ['HR', 'IT', 'Finance', 'Marketing', 'Operations', 'Sales', 'Management'] },
     

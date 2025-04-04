@@ -35,6 +35,12 @@ async function LeaveApplication(req, res) {
 
         })
 
+        await admin.findByIdAndUpdate(AdminDataId, {
+            $push: { leaveRequest: leaveId._id }
+            
+
+        })
+
 
         res.status(200).send('Leave Applied')
 
