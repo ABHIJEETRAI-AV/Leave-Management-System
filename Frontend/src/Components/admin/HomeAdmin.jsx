@@ -15,6 +15,7 @@ function Home() {
   const [leave, setLeave] = useState(false);
   const [Username, setUsername] = useState('');
   const [data, setData] = useState();
+  // const [adminId, setAdminId] = useState('')
 
   const route = useLocation();
 
@@ -44,7 +45,9 @@ function Home() {
     getAdminData(route.state.token.token)
   }, [])
 
-  // console.table( data)
+  // console.log( data[0]._id)
+
+  // setAdminId (data[0]._id)
 
   localStorage.setItem('adminData', JSON.stringify(data) )
   // console.log(localStorage.getItem('adminData'))
@@ -68,7 +71,11 @@ function Home() {
         {
           (dashboard) ? <DashboardAdmin /> : ""
         }{
-          (employee) ? <EmployeeSignUp /> : ""
+          (employee) ? <EmployeeSignUp 
+          
+          
+          
+          /> : ""
         }
          {
           (leave) ? <LeaveManager /> : ""
