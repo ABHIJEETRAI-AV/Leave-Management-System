@@ -15,7 +15,7 @@ function LeaveApplication() {
 
         const realData = {
             data: data,
-            adminId: localStorage.getItem('token')
+            adminId: localStorage.getItem('employeetoken')
         }
 
         console.log(realData)

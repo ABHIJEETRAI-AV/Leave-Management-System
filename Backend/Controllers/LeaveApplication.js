@@ -7,7 +7,7 @@ const verifyToken = require("../Utils/verifyToken");
 async function LeaveApplication(req, res) {
     try {
         const leaveId = await leave.create(req.body.data)
-
+// console.log(req.body.adminId)
         const adminid = verifyToken(req.body.adminId);
         // console.log(adminid)
 
@@ -40,7 +40,8 @@ async function LeaveApplication(req, res) {
 
     }
     catch (err) {
-        res.status(400).send(err)
+        res.status(400).send(err.message)
+        console.log(err.message)
     }
 
 }
