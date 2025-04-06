@@ -22,7 +22,12 @@ const uploadImageAdmin = require('./Routes/uploadImageAdmin');
 const logout = require('./Routes/logout');
 const changePassword = require('./Routes/changePassword');
 
-app.use(cors())
+app.use(cors(
+  {
+    origin: '*',
+    credentials: true,
+  }
+));
 app.use(express.json());
 
 async function connectDB() {
