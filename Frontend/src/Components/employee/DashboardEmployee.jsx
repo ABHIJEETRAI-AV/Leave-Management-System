@@ -11,7 +11,7 @@ import { useState } from 'react'
 // console.log (AdminData)
 
 // console.log(username)
-function DashboardEmployee({ setDashboard, setEmployee, setLeave }) {
+function DashboardEmployee({ setDashboard, setEmployee, setLeave, setProfile }) {
 
 
   const [data, setData] = useState([]);
@@ -55,7 +55,7 @@ function DashboardEmployee({ setDashboard, setEmployee, setLeave }) {
             <p className='text-white'>Hello {username}</p>
             <h1 className='text-[2.5rem] font-[600] text-white'>Welcome Back</h1>
           </div>
-          <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60'>
+          <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60' onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }}>
             <button ><img src={add} alt="" className='w-[100%] h-[100%]' /></button>
             <p>Apply Leave</p>
           </div>
@@ -66,7 +66,7 @@ function DashboardEmployee({ setDashboard, setEmployee, setLeave }) {
 
             heading='Total Leaves :'
 
-            sub={AdminData[0].totalLeaves}
+            sub='20'
 
             img={article}
 

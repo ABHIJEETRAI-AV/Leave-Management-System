@@ -72,7 +72,7 @@ export default function Login() {
             postData(data)
 
           })}
-            className='flex flex-col gap-4 items-center justify-around rounded-[10px]  p-4 w-[80%] h-[90%] bg-gradient-to-r from-[#1d0000] via-[#0a0101] to-[#0e0e0e]
+            className='flex flex-col gap-4 items-center justify-around rounded-[10px]  p-4 w-[80%] h-[90%] bg-white
 bg-clip-padding
 
 backdrop-saturate-100
@@ -82,22 +82,22 @@ bg-blend-overlay'
 
           >
 
-            <h1 className='text-[2rem] font-[600] text-white'>Login</h1>
+            <h1 className='text-[2rem] font-[600] text-black'>Login</h1>
 
             <input placeholder="Username"  {...register("username")}
 
-              className='border-2 border-black0 rounded-[5px] w-[65%] text-neutral-300 p-1'
+              className='border-b-2 border-black rounded-[5px] w-[65%] text-black/70 p-1'
 
             />
 
 
             <input placeholder="Password"  {...register("password")}
 
-              className='border-2 border-white rounded-[5px] w-[65%] text-neutral-300 p-1'
+              className='border-b-2 border-black rounded-[5px] w-[65%] text-black/70 p-1'
 
             />
 
-            <select id="role" {...register("role")} placeholder="dropdown" defaultValue="" className='border-2 border-white rounded-[5px] w-[65%] text-neutral-300 p-1'>
+            <select id="role" {...register("role")} placeholder="dropdown" defaultValue="" className='border-2 border-black rounded-[5px] w-[65%] text-black p-1'>
 
               <option value="" disabled className='text-white'>
                 Select your Role
@@ -112,7 +112,7 @@ bg-blend-overlay'
 
 
 
-            <input type="submit" className='w-[60%] bg-white text-black font-[500] h-[3rem] rounded-[8px]' />
+            <input type="submit" className='w-[60%] bg-black text-white font-[500] h-[3rem] rounded-[8px]' />
           </form>
 
         </div>

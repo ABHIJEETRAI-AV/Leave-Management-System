@@ -88,9 +88,14 @@ text-transparent text-[2rem] font-[700]'>Zamari</p></div>
             setDashboard={setDashboard}
             setEmployee={setEmployee}
             setLeave={setLeave}
+            setProfile={setProfile}
           /> : ""
         }{
-          (employee) ? <EmployeeLeaveManager /> : ""
+          (employee) ? <EmployeeLeaveManager   
+          setDashboard={setDashboard}
+          setEmployee={setEmployee}
+          setLeave={setLeave}
+          setProfile={setProfile}/> : ""
         }
         {
           (leave) ? <LeaveApplication /> : ""

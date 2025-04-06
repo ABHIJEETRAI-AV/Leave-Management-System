@@ -1,7 +1,7 @@
 import React from 'react'
 import add from '/src/assets/add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 
-function EmployeeLeaveManager() {
+function EmployeeLeaveManager({ setDashboard, setEmployee, setLeave, setProfile }) {
 
 
     const leaveData = JSON.parse(localStorage.getItem('leaveData') || '[]')
@@ -13,6 +13,10 @@ function EmployeeLeaveManager() {
             <div className='w-[100%]   flex flex-col items-center justify-between '>
 
                 <EmployeeLeaveDataCard
+                 setDashboard={setDashboard}
+                 setEmployee={setEmployee}
+                 setLeave={setLeave}
+                 setProfile={setProfile}
 
                     tableData={leaveData}
                 />
@@ -26,12 +30,12 @@ export default EmployeeLeaveManager
 
 
 
-function EmployeeLeaveDataCard({ tableData }) {
+function EmployeeLeaveDataCard({ tableData,setDashboard, setEmployee, setLeave, setProfile }) {
     console.log(tableData)
     return (
         <div className='w-[100%]  border-2 border-black  '>
 
-           
+
 
             <div className={`w-[100%] h-[14rem] border-2 border-black flex flex-col items-center justify-between  bg-black  `}>
 
@@ -41,7 +45,7 @@ function EmployeeLeaveDataCard({ tableData }) {
 
                         <h1 className='text-[2.5rem] font-[600] text-white'>Leave Requests</h1>
                     </div>
-                    <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60' >
+                    <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60' onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }} >
                         <button ><img src={add} alt="" className='w-[100%] h-[100%]' /></button>
                         <p>Apply Leave</p>
                     </div>
@@ -52,7 +56,7 @@ function EmployeeLeaveDataCard({ tableData }) {
                     <table className='w-[100%]   rounded-[20px] shadow-[0px_21px_23px_-3px_rgba(0,_0,_0,_0.55)] '>
                         <thead className='w-[100%] h-[4rem] bg-amber-100 rounded-t-[20px] flex items-center justify-center border-b-1 border-black/10' >
                             <tr className='w-[100%] h-[100%]  flex flex-row items-center justify-around'>
-                                
+
 
                                 <th className='flex items-center justify-center ' >Leave Type</th>
                                 <th className='flex items-center justify-center '>Leave Days</th>

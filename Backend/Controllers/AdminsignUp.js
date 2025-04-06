@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const employee = require('../Models/employee.model');
 const admin = require('../Models/admin.model');
 const verifyToken = require('../Utils/verifyToken');
+const nodemailer = require('../Utils/nodemailer');
 
 async function AdminSignUpController(req, res) {
     const { fullName, email, password } = req.body.data;
@@ -31,6 +32,11 @@ async function AdminSignUpController(req, res) {
             { admin: id }// The updated data
             // { new: true, runValidators: true } // Options: return the updated document and validate
         );
+
+        const to = employeedata.email;
+        const text = `Hello ${fullName},\n\nYour account has been created successfully.\n\nPlease log in to your account to access your dashboard.\n\n Your login details are \n\n username : ${fullName} \n\n password : ${password}` 
+
+        const mail = await nodemailer(to, text)
 
 
         res.status(200).send({
