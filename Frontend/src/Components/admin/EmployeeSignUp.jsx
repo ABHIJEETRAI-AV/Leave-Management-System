@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import add from '/src/assets/add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 import close from '/src/assets/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
-import {toast} from 'react-hot-toast'
+
 
 function EmployeeSignUp(props) {
 
@@ -42,8 +42,7 @@ function EmployeeSignUp(props) {
 
     }
 
-    toast.success('Employee Added Successfully')
-    setSignup(false)
+   
   }
 
 
