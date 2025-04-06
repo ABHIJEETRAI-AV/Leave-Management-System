@@ -29,7 +29,7 @@ function EmployeeSignUp(props) {
     console.log(realData)
 
     try {
-      const response = await fetch('http://leave-management-system-backend-nu.vercel.app/EmployeeSignUp', {
+      const response = await fetch('https://leave-management-system-backend-nu.vercel.app/EmployeeSignUp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ function EmployeeSignUp(props) {
 
   async function getEmployeeData(AdminData) {
 
-    const reponse = await fetch('http://leave-management-system-backend-nu.vercel.app/getEmployeeData', {
+    const reponse = await fetch('https://leave-management-system-backend-nu.vercel.app/getEmployeeData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

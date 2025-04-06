@@ -19,7 +19,7 @@ function DashboardAdmin() {
 
   async function getEmployeeData(AdminData) {
 
-    const reponse = await fetch('http://leave-management-system-backend-nu.vercel.app/getEmployeeData', {
+    const reponse = await fetch('https://leave-management-system-backend-nu.vercel.app/getEmployeeData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ function DashboardAdmin() {
 
   async function getLeaveRequest(AdminData) {
 
-    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/LeaveRequestData', {
+    const response = await fetch('https://leave-management-system-backend-nu.vercel.app/LeaveRequestData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

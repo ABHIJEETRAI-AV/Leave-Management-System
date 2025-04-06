@@ -17,7 +17,7 @@ function LeaveManager() {
 
   async function getLeaveRequest() {
 
-    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/LeaveRequestData', {
+    const response = await fetch('https://leave-management-system-backend-nu.vercel.app/LeaveRequestData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ function DecisionCard(props) {
       var decision = "Rejected"
     }
     console.log(leaveId)
-    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/LeaveDecider', {
+    const response = await fetch('https://leave-management-system-backend-nu.vercel.app/LeaveDecider', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

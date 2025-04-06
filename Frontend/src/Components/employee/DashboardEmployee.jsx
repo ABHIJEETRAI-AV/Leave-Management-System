@@ -23,7 +23,7 @@ function DashboardEmployee({ setDashboard, setEmployee, setLeave, setProfile }) 
 
 
   async function getLeave(employeeId) {
-    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/getLeave',
+    const response = await fetch('https://leave-management-system-backend-nu.vercel.app/getLeave',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

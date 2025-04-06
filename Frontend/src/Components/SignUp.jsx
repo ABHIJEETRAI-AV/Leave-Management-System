@@ -15,7 +15,7 @@ function SignUp() {
 
 
   async function postData(data) {
-    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/SignUp', {
+    const response = await fetch('https://leave-management-system-backend-nu.vercel.app/SignUp', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

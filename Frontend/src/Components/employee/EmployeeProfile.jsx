@@ -41,7 +41,7 @@ function EmployeeProfile() {
 
     async function upload(url) {
 
-        const response = await fetch('http://leave-management-system-backend-nu.vercel.app/uploadImage', {
+        const response = await fetch('https://leave-management-system-backend-nu.vercel.app/uploadImage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -134,7 +134,7 @@ function ChangePassword({ setChangePassword }) {
 
         if (data.newPassword === data.checkPassword) {
             try {
-                const response = await fetch('http://leave-management-system-backend-nu.vercel.app/changePassword', {
+                const response = await fetch('https://leave-management-system-backend-nu.vercel.app/changePassword', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
