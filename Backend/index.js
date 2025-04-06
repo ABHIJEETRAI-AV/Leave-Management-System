@@ -20,6 +20,7 @@ const employeeData = require('./Routes/getEmployeeData');
 const uploadImage = require('./Routes/uploadImage');
 const uploadImageAdmin = require('./Routes/uploadImageAdmin');
 const logout = require('./Routes/logout');
+const changePassword = require('./Routes/changePassword');
 
 app.use(cors())
 app.use(express.json());
@@ -46,6 +47,7 @@ app.use('/getEmployeeData', employeeData)
 app.use('/uploadImage', uploadImage)
 app.use('/uploadImageAdmin', uploadImageAdmin)
 app.use('/logout', logout)
+app.use('/changePassword', changePassword)
 
 
 app.listen(3000 , () => {
