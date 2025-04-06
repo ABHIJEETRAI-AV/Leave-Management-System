@@ -19,7 +19,7 @@ export default function Login() {
 
 
   async function postData(data) {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

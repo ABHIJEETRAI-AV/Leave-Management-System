@@ -31,7 +31,7 @@ function Home() {
   localStorage.setItem('token', route.state.token.token)
 
   async function getAdminData(token) {
-    const response = await fetch('http://localhost:3000/getAdminData',
+    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/getAdminData',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

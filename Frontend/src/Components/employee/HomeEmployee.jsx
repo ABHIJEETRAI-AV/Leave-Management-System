@@ -31,7 +31,7 @@ function Home() {
   localStorage.setItem('employeetoken', route.state.token.token)
 
   async function getAdminData(token) {
-    const response = await fetch('http://localhost:3000/getAdminData',
+    const response = await fetch('http://leave-management-system-backend-nu.vercel.app/getAdminData',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -127,7 +127,7 @@ function AccountCard({ setProfile, setDashboard, setEmployee, setLeave, navigate
 
  async function logout() {
 
-const response = await fetch('http://localhost:3000/logout',
+const response = await fetch('http://leave-management-system-backend-nu.vercel.app/logout',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

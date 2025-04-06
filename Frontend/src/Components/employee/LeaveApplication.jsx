@@ -22,7 +22,7 @@ function LeaveApplication() {
         console.log(realData)
 
         try {
-            const response = await fetch('http://localhost:3000/leaveApplication', {
+            const response = await fetch('http://leave-management-system-backend-nu.vercel.app/leaveApplication', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
