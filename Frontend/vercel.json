@@ -1,8 +1,9 @@
 {
     "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
+    {
+      "source": "/api/(.*)",
+      "destination": "http://leave-management-system-backend-nu.vercel.app/$1"
+    }
+  ]
+
 }
