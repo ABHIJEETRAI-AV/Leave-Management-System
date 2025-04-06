@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/(.*)",
-        "destination": "/index.html"
+        "destination": "http://leave-management-system-backend-nu.vercel.app/$1"
       }
     ]
 }
