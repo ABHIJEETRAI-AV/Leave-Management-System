@@ -145,7 +145,7 @@ function EmployeeList(props) {
   return (
     <div className='w-[80%] h-[15rem]  flex flex-col items-center justify-around bg-white rounded-[20px] shadow-[0px_21px_23px_-3px_rgba(0,_0,_0,_0.55)]'>
 
-      <div className='w-[5rem] h-[5rem] rounded-[50%] border-2 border-black'><img src="" alt="" /></div>
+      <div className='w-[5rem] h-[5rem] rounded-[50%] border-2 border-black'><img src={props.employee && props.employee.profilePicture} alt="" className='w-[100%] h-[100%] rounded-[50%] fill-white' /></div>
       <h1 className='text-[1.5rem] font-[500] '>{props.employee.fullName}</h1>
       <p>{props.employee._id}</p>
       <button className='w-[30%] rounded-[20px] flex flex-row items-center justify-center border-2 border-black bg-black text-white'>More</button>
