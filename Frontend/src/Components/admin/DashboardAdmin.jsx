@@ -3,6 +3,9 @@ import add from '/src/assets/add_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 import person from '/src/assets/person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 import article from '/src/assets/article_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
 import people from '/src/assets/emoji_people_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg'
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 
 
 
@@ -13,6 +16,8 @@ function DashboardAdmin() {
 
   const [data, setData] = React.useState([])
   const [tableData, setTableData] = React.useState([])
+  const [isLoadingData, setIsLoadingData] = React.useState(true)
+  const [isLoadingTable, setIsLoadingTable] = React.useState(true)
   const adminData = localStorage.getItem('adminData')
   const AdminData = JSON.parse(adminData)
   const username = AdminData[0].username
@@ -33,6 +38,7 @@ function DashboardAdmin() {
 
     const data = await reponse.json()
     setData(data)
+    setIsLoadingData(false)
 
   }
 
@@ -53,6 +59,7 @@ function DashboardAdmin() {
     const data = await response.json()
     console.log(data)
     setTableData(data)
+    setIsLoadingTable(false)
   }
 
   useEffect(() => {
@@ -119,7 +126,8 @@ function DashboardAdmin() {
 
           <div className='w-[90%] h-[90%]  flex flex-col gap-3 items-center justify-around overflow-y-scroll'>
 
-            {data.map((employee, index) => (
+           
+          {!isLoadingData ? data.map((employee, index) => (
               data[index].isActive === false && (
                 <EmployeeOnLeave
                   key={index}
@@ -128,7 +136,7 @@ function DashboardAdmin() {
 
                 />
               )
-            ))}
+            )) : <Skeleton height={50} width={350} count={4} /> }
 
 
 
@@ -139,7 +147,7 @@ function DashboardAdmin() {
           <h1 className='flex items-start w-[90%] text-[1.3rem] font-[600] text-lime-800 mt-[0.5rem]'>Leave requests :</h1>
 
           <div className='w-[90%] h-[90%]  flex flex-col items-center gap-3 justify-around overflow-y-scroll'>
-            {tableData.map((leave, index) => (
+          {!isLoadingTable ? tableData.map((leave, index) => (
               leave.leaveRequest.status === 'Pending' && (
                 <LeaveRequests
                   employeeName={leave.employeeName}
@@ -148,7 +156,7 @@ function DashboardAdmin() {
                   leave={leave}
                 />
               )
-            ))}
+            )) : <Skeleton height={50} width={800} count={4} />}
           </div>
         </div>
 

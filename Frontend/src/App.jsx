@@ -5,6 +5,7 @@ import Login from './Components/Login'
 import SignUp from './Components/SignUp'
 import HomeAdmin from './Components/admin/HomeAdmin'
 import Home from './Components/employee/HomeEmployee'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <div className='h-[90vh]'>
+      <SkeletonTheme >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -22,6 +24,7 @@ function App() {
 
           </Routes>
         </BrowserRouter>
+        </SkeletonTheme>
       </div>
 
     </>
