@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const admin = require('../Models/admin.model');
 const createToken = require('../Utils/createToken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 
 
 const SignUpController = async (req, res) => {

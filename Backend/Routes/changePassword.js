@@ -2,7 +2,8 @@ const router = require("express").Router();
 const employee = require('../Models/employee.model');
 const admin = require('../Models/admin.model');
 const verifyToken = require('../Utils/verifyToken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 
 router.post('/', async (req, res) => {
 

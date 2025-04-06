@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
 
 const admin = require('../Models/admin.model');
 const employee = require('../Models/employee.model');
