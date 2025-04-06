@@ -19,7 +19,7 @@ function LeaveApplication() {
             adminId: localStorage.getItem('employeetoken')
         }
 
-        console.log(realData)
+        // console.log(realData)
 
         try {
             const response = await fetch('https://leave-management-system-backend-nu.vercel.app/leaveApplication', {

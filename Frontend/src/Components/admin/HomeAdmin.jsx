@@ -123,7 +123,7 @@ function AccountCard({ setProfile, setDashboard, setEmployee, setLeave, navigate
     localStorage.removeItem('adminData')
     
 
-    console.log("Navigating to login...");
+    // console.log("Navigating to login...");
 
     navigate('/')
 

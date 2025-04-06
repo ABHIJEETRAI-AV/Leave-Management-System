@@ -54,7 +54,7 @@ function EmployeeProfile() {
 
         const data = await response.json();
         setEmployeeData(data)
-        console.log(data)
+        // console.log(data)
     }
 
     useEffect(() => {
@@ -143,7 +143,7 @@ function ChangePassword({ setChangePassword }) {
                 })
             }
             catch (err) {
-console.log(err)
+// console.log(err)
             }
         }
         else {

@@ -7,7 +7,7 @@ function EmployeeLeaveManager({ setDashboard, setEmployee, setLeave, setProfile 
     const leaveData = JSON.parse(localStorage.getItem('leaveData') || '[]')
 
 
-    console.log(leaveData)
+    // console.log(leaveData)
     return (
         <div className='flex flex-row items-center justify-around '>
             <div className='w-[100%]   flex flex-col items-center justify-between '>
@@ -31,7 +31,7 @@ export default EmployeeLeaveManager
 
 
 function EmployeeLeaveDataCard({ tableData,setDashboard, setEmployee, setLeave, setProfile }) {
-    console.log(tableData)
+    // console.log(tableData)
     return (
         <div className='w-[100%]  border-2 border-black  '>
 
