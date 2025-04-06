@@ -5,13 +5,16 @@ import LeaveApplication from './LeaveApplication';
 import EmployeeLeaveManager from './EmployeeLeaveManager';
 import EmployeeProfile from './EmployeeProfile';
 import account from '/src/assets/account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
-import logout from '/src/assets/logout_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
+import Logout from '/src/assets/logout_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'
 import { useLocation } from 'react-router';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 
 
 function Home() {
+
+  const navigate = useNavigate()
 
   const [dashboard, setDashboard] = useState(false);
   const [employee, setEmployee] = useState(false);
@@ -19,7 +22,7 @@ function Home() {
   const [leave, setLeave] = useState(false);
   const [account, setAccount] = useState(false);
   const [Username, setUsername] = useState('');
-  const [dp , setDp] = useState('');
+  const [dp, setDp] = useState('');
   const [data, setData] = useState();
 
   const route = useLocation();
@@ -44,7 +47,7 @@ function Home() {
     const data = await response.json();
     const username = data[0].fullName;
     setDp(data[0].profilePicture);
-    
+
     setUsername(username);
     setData(data);
   }
@@ -96,7 +99,10 @@ text-transparent text-[2rem] font-[700]'>Zamari</p></div>
           (account) ? <AccountCard setProfile={setProfile}
             setDashboard={setDashboard}
             setEmployee={setEmployee}
-            setLeave={setLeave} /> : ""
+            setLeave={setLeave}
+            navigate={navigate}
+            id={data[0]._id}
+            /> : ""
         }
         {
           (profile) ? <EmployeeProfile /> : ""
@@ -112,9 +118,34 @@ export default Home
 
 
 
-function AccountCard({ setProfile, setDashboard, setEmployee, setLeave }) {
+function AccountCard({ setProfile, setDashboard, setEmployee, setLeave, navigate, id }) {
 
-  function setprofile(){
+ async function logout() {
+
+const response = await fetch('http://localhost:3000/logout',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+
+        body: JSON.stringify({
+          id: id})
+      }
+    )
+
+
+    localStorage.removeItem('employeetoken')
+    localStorage.removeItem('employeeData')
+    localStorage.removeItem('leaveData')
+
+    console.log("Navigating to login...");
+
+    navigate('/')
+
+
+
+  }
+
+  function setprofile() {
     setProfile(true)
     setDashboard(false)
     setEmployee(false)
@@ -128,8 +159,8 @@ function AccountCard({ setProfile, setDashboard, setEmployee, setLeave }) {
         <h1 >Profile</h1>
       </div>
       <hr className='w-[90%] bg-black' />
-      <div className='w-[90%] h-[45%] flex flex-row items-center justify-start gap-3'>
-        <img src={logout} alt="" />
+      <div className='w-[90%] h-[45%] flex flex-row items-center justify-start gap-3' onClick={() => { logout() }}>
+        <img src={Logout} alt="" />
         <h1>Logout</h1>
       </div>
 

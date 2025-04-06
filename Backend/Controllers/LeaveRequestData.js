@@ -33,6 +33,7 @@ async function LeaveRequestData(req, res) {
         for(let i = 0; i < LeaveRequestData.length; i++){
             overallData[i] = {
                 employeeName: employeeData[i].fullName,
+                img: employeeData[i].profilePicture,
                 leaveRequest: LeaveRequestData[i]
             }
             

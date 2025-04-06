@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'   
 
-function EmployeeProfile() {
+function AdminProfile() {
 
 
     const [picture, setPicture] = useState(false)
@@ -15,7 +15,7 @@ function EmployeeProfile() {
         if (file) {
             const data = new FormData();
             data.append("file", file);
-            data.append("upload_preset", "b2z6mh0c");
+            data.append("upload_preset", "jcyu8yxj");
             data.append("cloud_name", "dtzgh8app");
           
             const res = await fetch(
@@ -37,14 +37,14 @@ function EmployeeProfile() {
 
     async function upload(url){
 
-        const response = await fetch('http://localhost:3000/uploadImage', {
+        const response = await fetch('http://localhost:3000/uploadImageAdmin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 image: url,
-                token: localStorage.getItem('employeetoken')
+                token: localStorage.getItem('token')
             })
         })
 
@@ -74,13 +74,13 @@ function EmployeeProfile() {
 
                 <div className='w-[90%] h-[30%] relative bottom-[-5%]  flex flex-row  justify-center gap-[12rem]'>
                     <div className='flex flex-col items-center justify-start  w-[20%] h-[20rem] gap-4'>
-                        <div className='w-[15rem] h-[15rem] rounded-[50%] shadow-[0px_21px_23px_-3px_rgba(0,_0,_0,_0.55)] bg-white flex items-center justify-center'>{employeeData && <img src={employeeData.profilePicture} alt="" className='w-[90%] h-[90%] rounded-[50%] '/>}</div>
+                        <div className='w-[15rem] h-[15rem] rounded-[50%] shadow-[0px_21px_23px_-3px_rgba(0,_0,_0,_0.55)] bg-white flex items-center justify-center'>{employeeData && <img src={employeeData.image} alt="" className='w-[90%] h-[90%] rounded-[50%] '/>}</div>
                         <button className='w-[50%] h-[3rem] rounded-[20px] flex flex-row items-center justify-center  bg-purple-500 text-white shadow-[0px_2px_15px_-3px_rgba(0,_0,_0,_0.55)]' onClick={() => setPicture(true)}>Change Picture</button>
                     </div>
 
                     <div className='w-[40%] h-[25rem]  bg-white rounded-[20px] shadow-[0px_21px_23px_-3px_rgba(0,_0,_0,_0.55)] flex flex-col items-center justify-around'>
 
-                        <h1 className='w-[80%] flex flex-row items-center justify-start gap-4'>Name: <div className='text-black text-[1.5rem] font-[500]'>{employeeData && employeeData.fullName} </div></h1>
+                        <h1 className='w-[80%] flex flex-row items-center justify-start gap-4'>Name: <div className='text-black text-[1.5rem] font-[500]'>{employeeData && employeeData.username} </div></h1>
                         <h1 className='w-[80%] flex flex-row items-center justify-start gap-4'>Email: <div className='text-black text-[1.5rem] font-[500]'>{employeeData && employeeData.email}</div> </h1>
                         {/* <h1>Designation: {employeeData.designation && employeeData.designation}</h1>
                         <h1>Department: {employeeData.department && employeeData.department}</h1>
@@ -101,4 +101,4 @@ function EmployeeProfile() {
     )
 }
 
-export default EmployeeProfile
+export default AdminProfile

@@ -44,6 +44,15 @@ let hashed
      
 
     if (bool) {
+        if(role != 'Admin'){   
+             await employee.findByIdAndUpdate(adminInfo._id, {
+                 $set: { 
+                    isActive: true
+                 }
+             })
+           }
+
+
         res.status(200).json({
             message: 'Login Successful',
             validity: true,

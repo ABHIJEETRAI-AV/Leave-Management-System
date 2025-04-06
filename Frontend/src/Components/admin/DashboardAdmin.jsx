@@ -120,9 +120,10 @@ function DashboardAdmin() {
           <div className='w-[90%] h-[90%]  flex flex-col gap-3 items-center justify-around overflow-y-scroll'>
 
             {data.map((employee, index) => (
-              data[index].isActive === true && (
+              data[index].isActive === false && (
                 <EmployeeOnLeave
                   key={index}
+                  img={employee.profilePicture}
                   employeeName={employee.fullName}
 
                 />
@@ -142,6 +143,7 @@ function DashboardAdmin() {
               leave.leaveRequest.status === 'Pending' && (
                 <LeaveRequests
                   employeeName={leave.employeeName}
+                  img= {leave.img}
                   key={index}
                   leave={leave}
                 />
@@ -165,6 +167,7 @@ function DataCard(props) {
     <div className='w-[25%] h-[10rem]  rounded-[20px] flex flex-row items-center justify-between bg-white shadow-[1px_20px_23px_-3px_rgba(0,_0,_0,_0.55)]'>
       <div className={`flex flex-col items-center justify-center h-[100%] w-[40%] ${props.color} rounded-l-[18px]`}><div className='flex flex-col items-center justify-center h-[6rem] w-[6rem] rounded-[50%] '><img src={props.img} alt="" className='w-[90%] h-[90%] fill-white' /></div> </div>
       <div className='flex flex-col items-center justify-around h-[100%] w-[60%]'>
+
         <h1 className='text-[1.2rem] font-[400]'>{props.head}</h1>
         <p className='text-[1.5rem]'>{props.sub}</p>
       </div>
@@ -177,7 +180,7 @@ function EmployeeOnLeave(props) {
   return (
     <div className='w-[100%] min-h-[5rem]  rounded-[20px] flex flex-row items-center justify-around bg-black/10'>
 
-
+      <img src={props.img} alt="" className='w-[3rem] h-[3em] rounded-[50%] bg-white' />
       <h1>{props.employeeName}</h1>
       <p>subheading</p>
 
@@ -190,9 +193,10 @@ function LeaveRequests(props) {
   return (
     <div className='w-[100%] min-h-[5rem]  rounded-[20px] flex flex-row items-center justify-around bg-black/10'>
 
-
+      <img src={props.img} alt="" className='w-[3rem] h-[3em] rounded-[50%] bg-white' />
       <h1>{props.employeeName}</h1>
       <p>{props.leave.leaveRequest.leaveType}</p>
+      <p>{props.leave.leaveRequest.leaveDays}</p>
 
 
     </div>

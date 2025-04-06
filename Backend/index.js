@@ -18,6 +18,8 @@ const leaveRequestData = require('./Routes/leaveRequestData');
 const leaveDecider = require('./Routes/leaveDecider');
 const employeeData = require('./Routes/getEmployeeData');
 const uploadImage = require('./Routes/uploadImage');
+const uploadImageAdmin = require('./Routes/uploadImageAdmin');
+const logout = require('./Routes/logout');
 
 app.use(cors())
 app.use(express.json());
@@ -42,6 +44,8 @@ app.use('/LeaveRequestData', leaveRequestData)
 app.use('/LeaveDecider', leaveDecider)
 app.use('/getEmployeeData', employeeData)
 app.use('/uploadImage', uploadImage)
+app.use('/uploadImageAdmin', uploadImageAdmin)
+app.use('/logout', logout)
 
 
 app.listen(3000 , () => {
