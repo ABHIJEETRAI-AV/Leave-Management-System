@@ -55,7 +55,7 @@ function DashboardEmployee({ setDashboard, setEmployee, setLeave, setProfile }) 
             <p className='text-white'>Hello {username}</p>
             <h1 className='text-[2.5rem] font-[600] text-white'>Welcome Back</h1>
           </div>
-          <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60' onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }}>
+          <div className='flex flex-row items-center justify-around h-[20%] w-[10%] rounded-[20px] border-2 border-white mr-[2rem] bg-white/60 shadow-[0_5px_0_theme(colors.blue.100)] hover:shadow-[0_2px_0_theme(colors.blue.400)] active:shadow-none hover:translate-y-1 active:translate-y-2 transition-all duration-150' onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }}>
             <button ><img src={add} alt="" className='w-[100%] h-[100%]' /></button>
             <p>Apply Leave</p>
           </div>

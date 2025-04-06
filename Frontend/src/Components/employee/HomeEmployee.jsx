@@ -70,12 +70,12 @@ to-zinc-400
 bg-clip-text
 text-transparent text-[2rem] font-[700]'>Zamari</p></div>
         <div className='flex flex-row items-center justify-around w-[50%] h-[100%] border-2 border-black' >
-          <button onClick={(e) => { setDashboard(true); setEmployee(false); setLeave(false); setProfile(false) }}>Dashboard</button>
-          <button onClick={(e) => { setEmployee(true); setDashboard(false); setLeave(false); setProfile(false); }}>Leave Manager</button>
-          <button onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }}>Leave Application</button>
+          <button onClick={(e) => { setDashboard(true); setEmployee(false); setLeave(false); setProfile(false) }} className='hover:text-blue-800 hover:font-[600]'>Dashboard</button>
+          <button onClick={(e) => { setEmployee(true); setDashboard(false); setLeave(false); setProfile(false); }} className='hover:text-blue-800 hover:font-[600]'>Leave Manager</button>
+          <button onClick={(e) => { setLeave(true); setEmployee(false); setDashboard(false); setProfile(false); }} className='hover:text-blue-800 hover:font-[600]'>Leave Application</button>
         </div>
         <div className='w-[15%] h-[100%] flex items-center justify-center'>
-          <div className='flex flex-row items-center justify-around w-[70%] h-[60%] rounded-[30px] bg-white/40 shadow-[9px_6px_23px_-3px_rgba(193,_166,_242,_0.55)]' onClick={(e) => { setAccount(!account) }}>
+          <div className='flex flex-row items-center justify-around w-[70%] h-[60%] rounded-[30px] bg-white/40 shadow-[0_5px_0_theme(colors.blue.400)] hover:shadow-[0_2px_0_theme(colors.blue.400)] active:shadow-none hover:translate-y-1 active:translate-y-2 transition-all duration-150' onClick={(e) => { setAccount(!account) }}>
             <img src={data && dp} alt="" className='h-[2rem] w-[2rem] rounded-[50%] ' />
             <p className='text-[1.2rem] font-[500] text-black'>{Username}</p>
           </div>
